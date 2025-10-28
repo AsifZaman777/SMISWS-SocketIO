@@ -252,8 +252,8 @@
     <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 
     <script>
-      // Initialize Socket.IO connection
-      var socket = io("http://192.168.100.48:8001", {
+      // Initialize Socket.IO connection to bridge server
+      var socket = io("http://localhost:3000", {
         transports: ["websocket", "polling"],
         reconnection: true,
         reconnectionDelay: 1000,
@@ -262,8 +262,13 @@
 
       // Socket.IO event handlers
       socket.on("connect", function () {
-        console.log("Socket.IO connected");
+        console.log("Socket.IO connected to bridge server");
         dispCtnt("Connection established" + "<br>");
+      });
+
+      socket.on("connect_status", function (data) {
+        console.log("Bridge status:", data);
+        dispCtnt("Bridge: " + data.message + "<br>");
       });
 
       socket.on("message", function (data) {
