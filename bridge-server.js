@@ -14,14 +14,14 @@ const io = new Server(server, {
   },
 });
 
-// WebSocket server URL (your existing server)
+//SMISWS socket url
 const WS_SERVER_URL = "ws://192.168.100.48:8001";
 
-// Handle Socket.IO client connections
+//handle socket io client connections
 io.on("connection", (socket) => {
   console.log("Socket.IO client connected:", socket.id);
 
-  // Create WebSocket connection to the actual server
+  //create plain WebSocket connection to the SMISWS server
   let ws = null;
 
   try {
