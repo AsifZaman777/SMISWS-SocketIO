@@ -1,6 +1,7 @@
 ### SMISWS with socket io implementation
 
 #### 🔌 Connection Architecture
+![socket io smisws implementation](image.png)
 
 
 #### Why we need a bridge server?
